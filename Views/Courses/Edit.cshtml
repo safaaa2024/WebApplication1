@@ -1,0 +1,46 @@
+﻿@model Cours
+@{
+    ViewData["Title"] = "Update Course";
+    var instructors = new SelectList(ViewBag.Instructors, nameof(Instructor.Id), nameof(Instructor.FirstName));
+}
+<h1>@ViewData["Title"]</h1>
+<br />
+<form asp-action="Edit">
+    <fieldset>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" value="@Model.Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Topic" class="form-label"></label>
+            <input asp-for="Topic" class="form-control" value="@Model.Topic">
+            <span asp-validation-for="Topic" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="MinimumDegree" class="form-label"></label>
+            <input asp-for="MinimumDegree" class="form-control" value="@Model.MinimumDegree">
+            <span asp-validation-for="MinimumDegree" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="FullDegree" class="form-label"></label>
+            <input asp-for="FullDegree" class="form-control" value="@Model.FullDegree">
+            <span asp-validation-for="FullDegree" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label class="col-form-label" asp-for="instructor"></label>
+            <select class="form-control" asp-for="instructorId" asp-items="@instructors">
+                <option value="@null">-- Select Instructor --</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-primary">Back</a>
+    </fieldset>
+</form>
+@section ValidationScripts {
+   <partial name="_ValidationScriptsPartial"/>
+}

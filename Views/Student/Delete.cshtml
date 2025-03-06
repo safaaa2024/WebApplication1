@@ -1,0 +1,33 @@
+﻿@model StudentModel
+
+<form asp-action="Delete" class="form-control">
+
+
+	<div class="mb-3">
+		<img style="width:18rem" class="card-img-top" src="/Image/@Model.Image" />
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Name" class="form-label">Name</label>
+		<input asp-for="Name" class="form-control" disabled value=@Model.Name>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Age" class="form-label">Age</label>
+		<input asp-for="Age" class="form-control" disabled value=@Model.Age>
+	</div>
+	<div class="mb-3">
+		<label asp-for="Address" class="form-label">Address</label>
+		<input asp-for="Address" class="form-control" disabled value=@Model.Address>
+	</div>
+	<div>
+		<input type="Submit" value="Delete" class="btn btn-danger" onclick="return DeleteStudent()" />|
+		<a asp-action="Index" class="btn btn-info">Back</a>
+	</div>
+</form>
+<script>
+	function DeleteStudent()
+	{
+		return confirm("Are You Sure to delete this Student?")
+	}
+</script>

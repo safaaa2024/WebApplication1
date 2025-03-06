@@ -1,0 +1,41 @@
+﻿
+@using WebApplication1.ViewModels
+@model CoursViewModel
+
+
+<div class="mb-3">
+	<label for="disabledTextInput" class="form-label">Name</label>
+	<input type="text" id="disabledTextInput" class="form-control" disabled value=@Model.Name>
+</div>
+
+<div class="mb-3">
+	<label for="disabledTextInput" class="form-label">Topic</label>
+	<input type="text" id="disabledTextInput" class="form-control" disabled value=@Model.Topic>
+</div>
+<div class="mb-3">
+	<label for="disabledTextInput" class="form-label">MinDegree</label>
+	<input type="text" id="disabledTextInput" class="form-control" disabled value=@Model.MinDegree>
+</div>
+<table class="table">
+	<thead>
+
+		<tr>
+			<th scope="col">Student Name</th>
+			<th scope="col">Degree</th>
+		</tr>
+	</thead>
+	<tbody>
+
+
+		@for (int i = 0; i < Model.Degree.Count(); i++)
+		{
+				<tr>
+					<td>@Model.StudentName[i]</td>
+					<td style="color:@Model.Color[i]">@Model.Degree[i]</td>
+
+				</tr>
+		}
+	</tbody>
+
+</table>
+<div><a href="/Student" class="btn btn-info">Back</a></div>

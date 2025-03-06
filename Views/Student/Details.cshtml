@@ -1,0 +1,42 @@
+﻿
+@model StudentViewModel
+<div class="mb-3">
+	<img style="width:18rem" class="card-img-top" src="/Image/@Model.Image" />
+</div>
+
+<div class="mb-3">
+	<label for="disabledTextInput" class="form-label">Name</label>
+	<input type="text" id="disabledTextInput" class="form-control" disabled value=@Model.StudentName>
+</div>
+
+<div class="mb-3">
+	<label for="disabledTextInput" class="form-label">Age</label>
+	<input type="text" id="disabledTextInput" class="form-control" disabled value=@Model.Age>
+</div>
+<div class="mb-3">
+	<label for="disabledTextInput" class="form-label">Address</label>
+	<input type="text" id="disabledTextInput" class="form-control" disabled value=@Model.Adress>
+</div>
+<table class="table">
+	<thead>
+
+		<tr>
+			<th scope="col">Course Name</th>
+			<th scope="col">Degree</th>
+		</tr>
+	</thead>
+	<tbody>
+
+
+		@for (int i = 0; i < Model.Degree.Count(); i++)
+		{
+			<tr>
+				<td>@Model.CourseNames[i]</td>
+				<td style="color:@Model.Color[i]">@Model.Degree[i]</td>
+
+			</tr>
+		}
+	</tbody>
+
+</table>
+<div><a href="/Student" class="btn btn-info">Back</a></div>

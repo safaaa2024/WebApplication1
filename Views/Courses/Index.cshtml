@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Cours>
+<a class="btn btn-primary" asp-action="Create">Create new Courses</a>
+
+<div>
+	<h3>
+		@TempData["Name"]
+	</h3>
+</div>
+<table class="table">
+	<thead>
+		<tr>			
+			<th scope="col">Name</th>
+			<th scope="col">Topic</th>
+			<th scope="col">instructor</th>
+			<th scope="col">MinDegree</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var cours in Model)
+		{
+
+			<tr>
+				
+				<td>@cours.Name</td>
+				<td>@cours.Topic</td>
+				<td>@cours.instructor.FirstName</td>
+				<td>@cours.MinimumDegree</td>
+				<td><a href="/Courses/Details/@cours.Id" class="btn btn-info">Details</a></td>
+				<td> <a href="/courses/Edit/@cours.Id" class="btn btn-info">Edit</a></td>
+			</tr>
+		}
+	</tbody>
+</table>

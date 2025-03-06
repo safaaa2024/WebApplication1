@@ -1,0 +1,31 @@
+﻿@model List<Instructor>
+<a class="btn btn-primary" asp-action="Create">Create new instructor</a>
+<h2>Instructors List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hire Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var instructor in Model)
+        {
+            <tr>
+                <td>@instructor.FirstName @instructor.LastName</td>
+                <td>@instructor.Salary</td>
+                <td>@instructor.Age</td>
+                @* <td>@instructor.HireDate.ToString("dd/MM/yyyy")</td> *@
+                <td>@instructor.HireDate.ToShortDateString()</td>
+                <td>
+                    <a href="/Instructor/Details/@instructor.Id" class="btn btn-info">Details</a>
+                    <a href="/Instructor/Edit/@instructor.Id" class="btn btn-info">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<StudentModel>
+<div>
+	<h3>
+		@TempData["Name"]
+	</h3>
+</div>
+<a class="btn btn-primary" asp-action="Create">Create new student</a>
+
+@if (Model.Count() > 0)
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Name</th>
+				<th scope="col">Age</th>
+				<th scope="col">Address</th>
+				<th scope="col">Image</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (StudentModel student in Model)
+			{
+
+				<tr>
+					<td>@student.Id</td>
+					<td>@student.Name</td>
+					<td>@student.Age</td>
+					<td>@student.Address</td>
+					<td>@student.Image</td>
+					<td><a href="/Student/Details/@student.Id" class="btn btn-info">Details</a></td>
+					<td> <a asp-action="Edit" asp-route-id="@student.Id" class="btn btn-info">Edit</a></td>
+					<td> <a asp-action="Delete" asp-route-id="@student.Id" class="btn btn-danger">Delete</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<div class="bg-info-subtle">
+		<h3 class="text-bg-warning">There is No Students :(</h3>
+	</div>
+}
